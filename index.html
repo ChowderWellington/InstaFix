@@ -45,9 +45,39 @@
             maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right</p> <button onclick="dothecheck()">Yes</button> <button onclick="idkman()">No</button>`
             globalThis.OSS = os
         } 
+        function dothecheck() {
+            if (OSS == "Windows") {
+                windows()
+            }
+            if (OSS == "ChromeOS") {
+                chromeos()
+            }
+            if (OSS = "macOS") {
+                macos()
+            }
+            if (OSS = "Linux") {
+                linux()
+            }
+        }
         function theyknow() {
             const maincontent = document.getElementById("maincontent");
             maincontent.innerHTML = `<p>Please select an operating system from the below</p> <button onclick="windows()">Windows</button><button onclick="macos()">MacOS</button><button onclick="linux()">Linux</button><button onclick="chromeos()">ChromeOS</button>`
+        }
+        function windows(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Windows</p> <button onclick="theyknow()">Yes</button>`
+        }
+        function chromeos(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>chromeos</p> <button onclick="theyknow()">Yes</button>`
+        }
+        function macos(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>macos</p> <button onclick="theyknow()">Yes</button>`
+        }
+        function linux(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>linux</p> <button onclick="theyknow()">Yes</button>`
         }
         function idkman(){
             const maincontent = document.getElementById("maincontent");
