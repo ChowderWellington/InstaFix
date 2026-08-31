@@ -1,2 +1,2 @@
 # InstaFix
-A program to help less techy people fix hardware 
+A website to help less techy people fix hardware 
