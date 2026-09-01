@@ -1,105 +1,112 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>InstaFix</title>
     <script>
+        let OSS = "";
+
         function detectOS() {
             const userAgent = window.navigator.userAgent;
             const platform = window.navigator.platform;
             const macPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
-            if (userAgent.indexOf('Windows') !== -1) {
-                return 'Windows';
-            }
-            if (userAgent.indexOf('CrOS') !== -1) {
-                return 'ChromeOS';
-            }
-            if (macPlatforms.includes(platform)) {
-                return 'macOS';
-            }
-            if (/iPhone|iPad|iPod/.test(userAgent)) {
-                return 'iOS';
-            }
-            if (/Android/.test(userAgent)) {
-                return 'Android';
-            }
-            if (/Linux/.test(platform)) {
-                return 'Linux';
-            }
             
+            if (userAgent.indexOf('Windows') !== -1) { return 'Windows'; }
+            if (userAgent.indexOf('CrOS') !== -1) { return 'ChromeOS'; }
+            if (macPlatforms.includes(platform)) { return 'macOS'; }
+            if (/iPhone|iPad|iPod/.test(userAgent)) { return 'iOS'; }
+            if (/Android/.test(userAgent)) { return 'Android'; }
+            if (/Linux/.test(platform)) { return 'Linux'; }
             return 'Unknown OS';
         }
+
         function ok() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>What appears to be the problem?</p> <button onclick="notturningon()">It won't turn on</button><button onclick="slowness()">It is running way slower than before</button>`
-        }
-        function notturningon() {
-            const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Is it plugged in?</p> <button onclick="pluggedin()">Yes</button> <button onclick="notpluggedin()">No</button>`
+            maincontent.innerHTML = `<p>What appears to be the problem?</p><button onclick="slowness()">It is running way slower than before</button>`;
         }
         function slowness() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Do you know what operating system you are using?</p> <button onclick="theyknow()">Yes</button> <button onclick="theydont()">No</button>`
+            maincontent.innerHTML = `<p>Do you know what operating system you are using?</p> <button onclick="theyknow()">Yes</button> <button onclick="theydont()">No</button>`;
         }
+
         function theydont() {
             const maincontent = document.getElementById("maincontent");
             let os = detectOS();
-            maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right</p> <button onclick="dothecheck()">Yes</button> <button onclick="idkman()">No</button>`
-            globalThis.OSS = os
-        } 
-        function dothecheck() {
-            if (OSS == "Windows") {
-                windows()
-            }
-            if (OSS == "ChromeOS") {
-                chromeos()
-            }
-            if (OSS = "macOS") {
-                macos()
-            }
-            if (OSS = "Linux") {
-                linux()
-            }
+            maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right</p> <button onclick="dothecheck()">Yes</button> <button onclick="idkman()">No</button>`;
+            OSS = os;
         }
+
+        function dothecheck() {
+            if (OSS === "Windows") { windows(); }
+            else if (OSS === "ChromeOS") { chromeos(); }
+            else if (OSS === "macOS") { macos(); }
+            else if (OSS === "Linux") { linux(); }
+        }
+
         function theyknow() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Please select an operating system from the below</p> <button onclick="windows()">Windows</button><button onclick="macos()">MacOS</button><button onclick="linux()">Linux</button><button onclick="chromeos()">ChromeOS</button>`
+            maincontent.innerHTML = `<p>Please select an operating system from the below</p> <button onclick="windows()">Windows</button><button onclick="macos()">MacOS</button><button onclick="linux()">Linux</button><button onclick="chromeos()">ChromeOS</button>`;
         }
+
         function windows(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Windows</p> <button onclick="theyknow()">Yes</button>`
+            maincontent.innerHTML = `<p>This can be because of background apps, low storage or startup apps. Would you like help fixing this?</p> <button onclick="wantshelp()">Yes</button> <button onclick="nohelpneeded()">No</button>`;
         }
+
         function chromeos(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>chromeos</p> <button onclick="theyknow()">Yes</button>`
+            maincontent.innerHTML = `<p>chromeos</p> <button onclick="theyknow()">Yes</button>`;
         }
+
         function macos(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>macos</p> <button onclick="theyknow()">Yes</button>`
+            maincontent.innerHTML = `<p>macos</p> <button onclick="theyknow()">Yes</button>`;
         }
+
         function linux(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>linux</p> <button onclick="theyknow()">Yes</button>`
+            maincontent.innerHTML = `<p>linux</p> <button onclick="theyknow()">Yes</button>`;
         }
+
         function idkman(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>If you know it because you said it was wrong, do you want to return to the selection page?</p> <button onclick="theyknow()">Yes</button>`
+            maincontent.innerHTML = `<p>If you know it because you said it was wrong, do you want to return to the selection page?</p> <button onclick="theyknow()">Yes</button>`;
         }
-        // const maincontent = document.getElementById("maincontent");
-        // maincontent.innerHTML = `<p>This can be because of background apps, low storage or startup apps. Would you like help fixing this?</p> <button onclick="wantshelp()">Yes</button> <button onclick="nohelpneeded()">No</button>`
+
         function nohelpneeded() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Have a great day then! Let me know if you need anything else any time!</p> <button onclick="restart()">Restart</button>`
+            maincontent.innerHTML = `<p>Have a great day then! Let me know if you need anything else any time!</p> <button onclick="restart()">Restart</button>`;
         }
+
         function restart() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>What type of device is not working?</p> <button onclick="ok()">Computer</button>`
+            maincontent.innerHTML = `<p>What type of device is not working?</p> <button onclick="ok()">Computer</button>`;
         }
+
         function wantshelp() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Ok! First, press Ctrl or Control + Shift + Esc</p><button onclick="continuee()">I did that!</button>`
+            maincontent.innerHTML = `<p>Ok! First, press Ctrl + Shift + Esc</p><button onclick="continuee()">I did that!</button>`;
         }
+
         function continuee() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Now, a window like this should pop up:</p><button onclick="continuee()">I did that!</button>`
+            maincontent.innerHTML = `<p>Now, a window like this should pop up:</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><button onclick="windowswhoopsy()">It hasn't</button>`;
+        }
+        function windowswhoopsy() {
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Ok, try pressing Ctrl+Alt+Delete (not backspace, then click on the text "Task Manager" and this window should pop up:</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><button onclick="wearecooked()">It hasn't</button>`;
+        }
+        function wearecooked() {
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Oof! Try pressing Windows+X, then click on "Task Manager" from the list. This window should now pop up</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><button onclick="ohhhhnooo()">It hasn't</button>`;
+        }
+        function ohhhhnooo() {
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Sorry, but you may have done something either totally correct or totally wrong, but either way I do not know how to fix this. Please contact me (for free) at lazerkato.o@gmail.com or ask someone else.. Sorry!</p>`;
+        }
+
+        function wincon(){
+            // Add next steps here
         }
     </script>
 </head>
@@ -110,3 +117,4 @@
         <button onclick="ok()">Computer</button>
     </div>
 </body>
+</html>
