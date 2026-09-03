@@ -102,19 +102,43 @@
         }
         function ohhhhnooo() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Sorry, but you may have done something either totally correct or totally wrong, but either way I do not know how to fix this. Please contact me (for free) at lazerkato.o@gmail.com or ask someone else.. Sorry!</p>`;
+            maincontent.innerHTML = `<p>Sorry, but you may have done something either totally correct or totally wrong, but either way I do not know how to fix this. Please contact me (for free) at lazerkato.o@gmail.com or ask someone else.. Sorry!</p> <button onclick="restart()">Restart</button>`;
         }
 
         function wincon(){
-            // Add next steps here
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Now that the window has opened, click on this button on the left side of the window</p> <img src="image.png" width="300"> <button onclick="wowieie()">I have!</button>`
+        }
+        function wowieie(){
+            const mainconent = document.getElementById("maincontent");
+            mainconent.innerHTML = `<p>It should now show a window like this</p><img src="image (15).png" width="300"> <button onclick="bigge()">It has</button><button onclick="ohhhhnooo()">It hasn't</button>`
+        }
+        function bigge(){
+            const mainconent = document.getElementById("maincontent");
+            mainconent.innerHTML = `<p>Now, you can go through this list and click on any item that has "enabled" next to it in the status column, then click the </p><img src="image (16).png" width="200"><p>button to disable anything. Just bear in mind while you do this that sometimes your apps might actually need some of these startup apps so if any app loses functionality, you may need to renable some options</p> <button onclick="restarter()">I have done that!</button>`
+        }
+        function restarter(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Now you can restart your computer. Do you need help with that?</p> <button onclick="helprestart()">Yes</button><button onclick="restarted()">No</button>`;
+        }
+        function helprestart(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Ok, First, to restart, hit Windows key + X at the same time, then after doing so, seperatly type "U" and then "R". This should trigger a restart. Has it?</p> <button onclick="restarted()">Yes, it restarted</button><button onclick="winstart()">No, nothing happened</button>`
+        }
+        function winstart(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Ok, now press Windows key + R, then type EXCACTLY "shutdown /r /t 0" and press enter. It should now restart.</p> <button onclick="restarted()">Yes, it restarted</button><button onclick="ohhhhnooo()">No, nothing happened</button>`
+        }
+        function restarted(){
+            const maincontent = document.getElementById("maincontent");
+            maincontent.innerHTML = `<p>Now, after restarting, try opening apps and things! Is it running faster? Also you can click "No" if you would like to try to get even more speed out of your pc?</p> <button>Yes</button><button>No</button>`
         }
     </script>
 </head>
 <body>
     <h1>Welcome to InstaFix!</h1>
     <div id="maincontent">
-        <p>What type of device is not working?</p>
-        <button onclick="ok()">Computer</button>
+        <button onclick="restart()">Start</button>
     </div>
 </body>
 </html>
