@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>InstaFix</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/if.ico" sizes="32x32">
     <script>
         let OSS = "";
 
@@ -29,13 +30,13 @@
         }
         function slowness() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Do you know what operating system you are using?</p> <button onclick="theyknow()">Yes</button> <button onclick="theydont()">No</button>`;
+            maincontent.innerHTML = `<p>Do you know what operating system you are using?</p> <button onclick="theyknow()">Yes</button><br></br> <button onclick="theydont()">No</button>`;
         }
 
         function theydont() {
             const maincontent = document.getElementById("maincontent");
             let os = detectOS();
-            maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right, unless you are trying to fix a computer that is not currently connected to this website</p> <button onclick="dothecheck()">Yes</button> <button onclick="idkman()">No</button>`;
+            maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right, unless you are trying to fix a computer that is not currently connected to this website</p> <button onclick="dothecheck()">Yes</button><br></br> <button onclick="idkman()">No</button>`;
             OSS = os;
         }
 
@@ -48,12 +49,12 @@
 
         function theyknow() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Please select an operating system from the below</p> <button onclick="windows()">Windows</button><button onclick="macos()">MacOS</button><button onclick="linux()">Linux</button><button onclick="chromeos()">ChromeOS</button>`;
+            maincontent.innerHTML = `<p>Please select an operating system from the below</p> <button onclick="windows()">Windows</button><br></br><button onclick="macos()">MacOS</button><br></br><button onclick="linux()">Linux</button><br></br><button onclick="chromeos()">ChromeOS</button>`;
         }
 
         function windows(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>This can be because of background apps, low storage or startup apps. Would you like help fixing this?</p> <button onclick="wantshelp()">Yes</button> <button onclick="nohelpneeded()">No</button>`;
+            maincontent.innerHTML = `<p>This can be because of background apps, low storage or startup apps. Would you like help fixing this?</p> <button onclick="wantshelp()">Yes</button><br></br> <button onclick="nohelpneeded()">No</button>`;
         }
 
         function chromeos(){
@@ -93,15 +94,15 @@
 
         function continuee() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Now, a window like this should pop up:</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><button onclick="windowswhoopsy()">It hasn't</button>`;
+            maincontent.innerHTML = `<p>Now, a window like this should pop up:</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><br></br><button onclick="windowswhoopsy()">It hasn't</button>`;
         }
         function windowswhoopsy() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Ok, try pressing Ctrl+Alt+Delete (not backspace, then click on the text "Task Manager" and this window should pop up:</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><button onclick="wearecooked()">It hasn't</button>`;
+            maincontent.innerHTML = `<p>Ok, try pressing Ctrl+Alt+Delete (not backspace, then click on the text "Task Manager" and this window should pop up:</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><br></br><button onclick="wearecooked()">It hasn't</button>`;
         }
         function wearecooked() {
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Oof! Try pressing Windows+X, then click on "Task Manager" from the list. This window should now pop up</p><br><img src="image (13).png" width="300"><br><button onclick="wincon()">It has!</button><button onclick="ohhhhnooo()">It hasn't</button>`;
+            maincontent.innerHTML = `<p>Oof! Try pressing Windows+X, then click on "Task Manager" from the list. This window should now pop up</p><br><img src="image (13).png" width="300"><br></br><button onclick="wincon()">It has!</button><br></br><button onclick="ohhhhnooo()">It hasn't</button>`;
         }
         function ohhhhnooo() {
             const maincontent = document.getElementById("maincontent");
@@ -113,7 +114,7 @@
         }
         function wowieie(){
             const mainconent = document.getElementById("maincontent");
-            mainconent.innerHTML = `<p>It should now show a window like this</p><img src="image (15).png" width="300"> <button onclick="bigge()">It has</button><button onclick="ohhhhnooo()">It hasn't</button>`
+            mainconent.innerHTML = `<p>It should now show a window like this</p><img src="image (15).png" width="300"> <button onclick="bigge()">It has</button><br></br><button onclick="ohhhhnooo()">It hasn't</button>`
         }
         function bigge(){
             const mainconent = document.getElementById("maincontent");
@@ -121,34 +122,39 @@
         }
         function restarter(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Now you can restart your computer. Do you need help with that?</p> <button onclick="helprestart()">Yes</button><button onclick="restarted()">No</button>`;
+            maincontent.innerHTML = `<p>Now you can restart your computer. Do you need help with that?</p> <button onclick="helprestart()">Yes</button><br></br><button onclick="restarted()">No</button>`;
         }
         function helprestart(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Ok, First, to restart, hit Windows key + X at the same time, then after doing so, seperatly type "U" and then "R". This should trigger a restart. Has it?</p> <button onclick="restarted()">Yes, it restarted</button><button onclick="winstart()">No, nothing happened</button>`
+            maincontent.innerHTML = `<p>Ok, First, to restart, hit Windows key + X at the same time, then after doing so, seperatly type "U" and then "R". This should trigger a restart. Has it?</p> <button onclick="restarted()">Yes, it restarted</button><br></br><button onclick="winstart()">No, nothing happened</button>`
         }
         function winstart(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Ok, now press Windows key + R, then type EXCACTLY "shutdown /r /t 0" and press enter. It should now restart.</p> <button onclick="restarted()">Yes, it restarted</button><button onclick="ohhhhnooo()">No, nothing happened</button>`
+            maincontent.innerHTML = `<p>Ok, now press Windows key + R, then type EXCACTLY "shutdown /r /t 0" and press enter. It should now restart.</p> <button onclick="restarted()">Yes, it restarted</button><br></br><button onclick="ohhhhnooo()">No, nothing happened</button>`
         }
         function restarted(){
             const maincontent = document.getElementById("maincontent");
-            maincontent.innerHTML = `<p>Now, after restarting, try opening apps and things! Is it running faster? Also you can click "No" if you would like to try to get even more speed out of your pc?</p> <button>Yes</button><button>No</button>`
+            maincontent.innerHTML = `<p>Now, after restarting, try opening apps and things! Is it running faster? Also you can click "No" if you would like to try to get even more speed out of your pc?</p> <button>Yes</button><br></br><button>No</button>`
         }
     </script>
     <style>
         button{
-            display: block; 
+            display: flex; 
+            flex-wrap: wrap;
+            gap: 16px;  
             margin: 0 auto;
             font-family: "Lora", serif;
             font-optical-sizing: auto;
             font-weight: 500;
             font-style: normal;
-            color: rgb(48, 66, 66);
+            color: rgb(228, 230, 195);
+            background-color: rgb(34, 39, 37);
+            border: none;
+            padding: 16px;
         }
         p{
             text-align: center;
-            color: rgb(48, 66, 66);
+            color: rgb(228, 230, 195);
         }
         h1{
             text-align: center;
@@ -156,15 +162,15 @@
             font-optical-sizing: auto;
             font-weight: 500;
             font-style: normal;
-            color: rgb(48, 66, 66);
+            color: rgb(228, 230, 195);
         }
         body{
-            background-color: rgb(104, 223, 152);
+            background-color: rgb(137, 152, 120);
             font-family: "Lora", serif;
             font-optical-sizing: auto;
             font-weight: 500;
             font-style: normal;
-            color: rgb(48, 66, 66);
+            color: rgb(153, 202, 46);
             margin: 0;
             min-height: 100dvh; 
             display: grid;  
@@ -173,10 +179,12 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to InstaFix!</h1>
     <div id="maincontent">
+        <h1>Welcome to InstaFix!</h1>
+        <p><img src="if_large.png" width="50"></p>
+        <p>On this website, you can attempt to fix any device using open-source solutions!</p>
         <button onclick="restart()">Start</button>
-        <!-- this is the night mail crossing the border bringing the check and the postal order letters for the rich letters for the poor the shop at the corner and the girl next door -->
+        <!-- why is hackatime so bad at timing over a time zone that isnt america and connecting to stardance -->
     </div>
 </body>
 </html>
