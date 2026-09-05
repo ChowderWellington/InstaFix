@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>InstaFix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <script>
         let OSS = "";
 
@@ -32,7 +35,7 @@
         function theydont() {
             const maincontent = document.getElementById("maincontent");
             let os = detectOS();
-            maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right</p> <button onclick="dothecheck()">Yes</button> <button onclick="idkman()">No</button>`;
+            maincontent.innerHTML = `<p>We have detected ` + os + `. Is this correct? If you don't know, just click yes as it probably is right, unless you are trying to fix a computer that is not currently connected to this website</p> <button onclick="dothecheck()">Yes</button> <button onclick="idkman()">No</button>`;
             OSS = os;
         }
 
@@ -104,7 +107,6 @@
             const maincontent = document.getElementById("maincontent");
             maincontent.innerHTML = `<p>Sorry, but you may have done something either totally correct or totally wrong, but either way I do not know how to fix this. Please contact me (for free) at lazerkato.o@gmail.com or ask someone else.. Sorry!</p> <button onclick="restart()">Restart</button>`;
         }
-
         function wincon(){
             const maincontent = document.getElementById("maincontent");
             maincontent.innerHTML = `<p>Now that the window has opened, click on this button on the left side of the window</p> <img src="image.png" width="300"> <button onclick="wowieie()">I have!</button>`
@@ -134,11 +136,47 @@
             maincontent.innerHTML = `<p>Now, after restarting, try opening apps and things! Is it running faster? Also you can click "No" if you would like to try to get even more speed out of your pc?</p> <button>Yes</button><button>No</button>`
         }
     </script>
+    <style>
+        button{
+            display: block; 
+            margin: 0 auto;
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            color: rgb(48, 66, 66);
+        }
+        p{
+            text-align: center;
+            color: rgb(48, 66, 66);
+        }
+        h1{
+            text-align: center;
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            color: rgb(48, 66, 66);
+        }
+        body{
+            background-color: rgb(104, 223, 152);
+            font-family: "Lora", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            color: rgb(48, 66, 66);
+            margin: 0;
+            min-height: 100dvh; 
+            display: grid;  
+            place-items: center; 
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to InstaFix!</h1>
     <div id="maincontent">
         <button onclick="restart()">Start</button>
+        <!-- this is the night mail crossing the border bringing the check and the postal order letters for the rich letters for the poor the shop at the corner and the girl next door -->
     </div>
 </body>
 </html>
